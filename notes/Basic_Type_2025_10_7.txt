@@ -1,0 +1,35 @@
+// Basic Types
+// Oct 7, 2025
+
+fn main() {
+    // Integer: int
+    // i8 ~ i128 (both positive and negative)
+    // u8 ~ u128 (positive only)
+    let a: i32 = -42;
+    let b: u64 = 90;
+    let max: i32 = i32::MAX;
+    let _test_union: u32 = 0;
+
+    println!("signed value: {}", a);
+    println!("signed value: {}", b);
+    println!("signed value: {}", max);
+
+    // Float: float
+    // f32, f64
+    let pi: f64 = 3.14;
+    println!("value of pi is {}", pi);
+
+    // Boolean: bool
+    // VALUE: TRUE, FALSE
+    //
+    let is_china_growing_stronger: bool = true;
+    let is_china_good_at_building_infastructure: bool = true;
+    println!("China grow {}", is_china_growing_stronger);
+    println!("China build {}", is_china_good_at_building_infastructure);
+
+    // Character: char
+    let letter: char = 'a';
+    println!("First letter of apple: {}", letter);
+}
+
+
