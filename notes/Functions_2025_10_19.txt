@@ -1,0 +1,83 @@
+// Functions
+// Oct , 2025
+
+// main() ---- Entry Point of whole program
+fn main() {
+	println!("Hello, Main");
+	hello_world();
+	tell_height(182);
+ 	say_hello();
+	log_human_id("Mike Jirison", 16, 185.0);
+
+	// Anonymous function in Rust
+	let _x: u32 = {
+		let price: u32 = 5;
+		let qty: u32 = 10;
+		price * qty
+	};
+
+	// Calling 'add' function with a return value
+	let y = add(1, 9);
+	println!("The value of y is {}", y);
+
+	// Calling the BMI function
+	let weight: f64 = 60.0;
+	let height: f64 = 1.855;
+	let bmi = get_bmi_value(weight, height);
+	println!("My bmi value: {:.2}", bmi);
+
+	println!("Result is {}", _x);
+	println!("Value from function 'add' is {}.", add(2, 4));
+	println!("Program exited");
+}
+
+// Hoisting ---- can call function anywhere in your code.
+fn hello_world() {
+	println!("Hello, Rust");
+}
+
+// You can insert input values
+fn tell_height(height: u32) {
+	println!("My height is {} cm.", height);
+}
+
+// Function Test 0
+fn log_human_id(name: &str, age: u32, height: f32) {
+	println!("My name is {}. I am {} years old, and my height is {} cm.", name, age, height);
+}
+
+// Function Test 1
+fn say_hello() {
+	println!("Hello, Bullshit");
+}
+
+// Expressions and Statements
+// Expression: Anything that returns a value.
+// Statement: Anything that doesn't returns a value.
+// Almost all statements in Rust end with ;
+
+// 1) Variable declarations : let x = 5
+// 2) Function defination : fn foo() {}
+// 3) Control flow statements
+
+// Expression Example:
+// 5
+// true & false
+// add(3, 4)
+// if condition {value01} else {value02}
+// ({code})
+
+// Final Example
+// BMI = weight(kg) / height(m) ^ 2
+fn get_bmi_value(weight: f64, height: f64) -> f64 {
+	weight / (height * height)
+}
+
+// add functions
+fn add(a: i32, b: i32) -> i32 {
+	a + b
+}
+
+// Note: An function / variables should be written in snake case.
+// Snake Case Example: hello_world
+// Kebab Case Example: hello-world
