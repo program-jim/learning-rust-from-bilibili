@@ -1,0 +1,48 @@
+// Ownership, Borrowing and References
+// Nov 30, 2025
+
+// Ownership
+// ---------
+// C, C++ -> Memory Management Control Issue
+// Garbage Collector solved this issue, but created a new issue:
+// Slow Performance -> [Stopping/Resuming the program]
+
+// OWNERSHIP introduced by Rust to solve memory safety issues and high performance at the same time.
+// What is Ownership?
+// Every value has a single owner [every variable has one value, and it is its sole owner.]
+
+// Ownership rules
+// 1. Each value in Rust has a variable that is its owner.
+// 2. There can be one owner at a time.
+// 3. When the owner goes out of the scope, the value will be dropped.
+// Link: https://doc.rust-lang.org/stable/book/ch04-01-what-is-ownership.html#ownership-rules
+
+fn main() {
+	let s1 = String::from("RUST");
+	let len = calculate_length(&s1);
+
+    // Rule 1: Each value in Rust has a variable that is its owner.
+	println!("Rule 1: Each value in Rust has a variable that is its owner.");
+	println!("Length of {} is {}", s1, len);
+
+    // Rule 2: There can be one owner at a time.
+    //println!("Rule 2: There can be one owner at a time.");
+    //let s2 = s1;
+    ////println!("{}", s1); // Wrong code, with mistakes.
+    //println!("{}", s2);
+
+    // Rule 3: When the owner goes out of the scope, the value will be dropped.
+    println!("Rule 3: When the owner goes out of the scope, the value will be dropped.");
+    println!("Length of {} is {}", s1, len);
+    // s1 goes out of scope, and its value will be dropped.
+    println!("s1 goes out of scope, and its value will be dropped.");
+    print_lost(&s1);
+}
+
+fn print_lost(s: &String){
+    println!("print_lost : {}", &s);
+}
+
+fn calculate_length(s: &String) -> usize {
+	s.len()
+}
