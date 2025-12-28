@@ -1,13 +1,6 @@
-// Variables and Mutability
-// Dec 21, 2025
-
-// Cannot assign twice to an immutable variable.
-// Consider using 'mut' to make it mutable.
+// Shadowing
+// [TO BE CONTINUED]
 
 fn main() {
-	println!("Hello, World~~~");
-	let mut a: u64 = 6;
-	println!("The value of a is {}.", a);
-	a  = 10;
-	println!("The value of a is {}.", a);
+    
 }

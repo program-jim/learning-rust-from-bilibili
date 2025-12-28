@@ -1,0 +1,23 @@
+// Constants
+// Dec 28, 2025
+
+fn main() {
+	println!("Hello, Constants in Rust.");
+    let mut x = 5;
+
+    // See Constant Declaration Points below the codes.
+    const Y: i32 = 10;
+
+    println!("x is {}", x);
+    println!("Y is {}", Y);
+    println!("PI is {}", PI);
+    println!("THREE_HOURS_IN_SECONDS is {}", THREE_HOURS_IN_SECONDS);
+}
+
+// Constant Declaration Points:
+// 1.A constant must be provided with a type.
+// 2.Const globals cannot be mutable
+// 3.A constant can be declared with a type annotation.
+// for example:
+const PI: f64 = 3.141592653589793;
+const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
