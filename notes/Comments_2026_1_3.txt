@@ -1,0 +1,21 @@
+// Comments
+// Jan 3, 2026
+
+// Comment Examples (with ease):
+// this is a one-line comment
+// This is a one-line comment with more formal content than that contained by the one above.
+
+fn main() {
+    // This is for printing "Hello, World!".
+    println!("Hello, World!");
+    println!("I'm a Rustacean!");
+    println!("I feel lucky"); // This is a comment for printing "I feel lucky".
+
+    // Block commenting in Rust
+    /*
+    In Rust, the idiomatic comment style starts a comment with two slashes, and the comment continues until the end of the line.
+    For comments that extend beyond a single line, you’ll need to include slash on each line,
+    like this:
+    */
+
+}

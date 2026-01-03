@@ -1,0 +1,19 @@
+// Shadowing
+// Jan 3, 2026
+
+// NOTICE:
+// Shadowing is not the same as marking a variable as mut(able).
+
+fn main() {
+    println!("Hello, world!");
+    let x = 5; // Result is 5
+    let x = x + 1; // Result is 6
+    let x = x * 1000; // Result is 6000
+
+    {
+        let x = x * 2; // Result is 12
+        println!("The value of x in the inner scope is: {}", x);
+    }
+
+    println!("The value of x in main() function is: {}", x);
+}
