@@ -1,10 +1,10 @@
 // Control Flows
+// Conditions
 
 // From: Jan 24, 2026
 // To: Feb 21, 2026
 
-// 1. Conditions : [If ... Else]
-// 2. Repeating Actions. [Loops]
+// [If ... Else]
 
 #![allow(warnings)]
 fn main() {
