@@ -1,5 +1,3 @@
-// Control Flows
-// Repeating Actions
-
-// [Loops]
-
+fn main() {
+    println!("Hello, world!");
+}
