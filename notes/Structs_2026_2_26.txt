@@ -1,0 +1,72 @@
+// Structs
+// Feb 24, 2026
+
+// Structs are used to name and package related values, similar to tuples.
+
+fn main() {
+    // Tuple Example
+    let rect: (u32, u32) = (200, 400);
+
+    // Struct
+    struct Book {
+        title: String,
+        author: String,
+        bio: String,
+        page: u32,
+        available: bool,
+    }
+
+    struct User {
+        active: bool,
+        username: String,
+        email: String,
+        bio: String,
+        sign_in_count: u64,
+    }
+
+    let mut user_a: User = User {
+        active: true,
+        username: String::from("Google"),
+        email: String::from("google@gmail.com"),
+        bio: String::from("A search engine company"),
+        sign_in_count: 1,
+    };
+
+    user_a.active = false;
+    println!("User name is {}", user_a.username);
+    println!("User email is {}", user_a.email);
+    println!("User sign in count is {}", user_a.sign_in_count);
+
+    // Return a struct from a function
+    fn build_user(email: String, username: String, bio: String) -> User {
+        User {
+            active: true,
+            username,
+            email,
+            bio,
+            sign_in_count: 1,
+        }
+    }
+
+    // Create instances from other instances
+    let user_b: User = User {
+        email: String::from("bilibili@gmail.com"),
+        username: String::from("Bilibili"),
+        bio: String::from("A YouTube-like video sharing website available in China"),
+        .. user_a
+    };
+
+    // Tuple Structs
+    struct Color(i32, i32, i32);
+    struct Point(i32, i32, i32);
+
+    let black: Color = Color(0, 0, 0);
+    let white: Color = Color(255, 255, 255);
+
+    let origin: Point = Point(0, 0, 0);
+
+    // Unit-Like Structs
+    struct AlwaysEqual;
+    let subject: AlwaysEqual = AlwaysEqual;
+
+}
