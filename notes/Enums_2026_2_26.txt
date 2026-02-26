@@ -1,0 +1,64 @@
+// Enums
+// Feb 26, 2026
+
+// Enum Definition:
+// A versatile tool used to represent a type 
+// that can take on one of several possible variants.
+
+// Example of an enum to represent IP address types:
+#[derive(PartialEq, Eq)]
+enum IpAddrKind {
+    V4,
+    V6,
+}
+
+fn main() {
+    let four : IpAddrKind = IpAddrKind::V4;
+    let six : IpAddrKind = IpAddrKind::V6;
+
+    route(four);
+    route(six);
+    println!("==================================");
+    route(IpAddrKind::V4);
+    route(IpAddrKind::V6);
+
+    // Using structs
+    struct IpAddr {
+        kind: IpAddrKind,
+        address: String,
+    }
+
+    let localhost: IpAddr = IpAddr {
+        kind: IpAddrKind::V4,
+        address: String::from("127.0.0.1"),
+    };
+
+    let loopback: IpAddr = IpAddr {
+        kind: IpAddrKind::V6,
+        address: String::from("::1"),
+    };
+
+    // Using enums
+    enum IpAddrEnum {
+        V4(u8, u8, u8, u8),
+        V6(String),
+    }
+
+    // let localhost_enum: IpAddrEnum = IpAddrEnum::V4(String::from("127.0.0.1"));
+    // let loopback_enum: IpAddrEnum = IpAddrEnum::V6(String::from("::1"));
+
+    // Enhanced enum
+    let localhost_enum: IpAddrEnum = IpAddrEnum::V4(127, 0, 0, 1);
+    let loopback_enum: IpAddrEnum = IpAddrEnum::V6(String::from("::1"));
+}
+
+fn route(ip_kind: IpAddrKind) {
+    if ip_kind == IpAddrKind::V4 {
+        println!("Routing IPv4 address");
+    } else if ip_kind == IpAddrKind::V6{
+        println!("Routing IPv6 address");
+    }
+    else {
+        println!("Unknown IP address type");
+    }
+}

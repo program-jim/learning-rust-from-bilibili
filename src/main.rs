@@ -1,5 +1,5 @@
-// Enums
-// Feb 26, 2026
+// Error Handling Techniques
+// [TO BE CONTINUED]
 
 fn main() {
     println!("Hello, world!");
