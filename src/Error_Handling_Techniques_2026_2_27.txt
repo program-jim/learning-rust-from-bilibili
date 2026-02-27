@@ -1,0 +1,54 @@
+// Error Handling Techniques
+// [2 approaches]
+// Feb 27, 2026
+
+// Approach 1: Using Option<T> for cases where a value may be absent
+// Approach 2: Using Result<T, E> for recoverable errors
+
+// Approach 1:
+// MyOption<T>  -- renamed to avoid conflicting with std::Option
+enum Option<T> { // Define the Generic Option type
+    Some(T), // Represents a value of type T
+    None, // Represents no value
+}
+
+// Example usage of MyOption<T>
+fn divide_option(numerator: f64, denominator: f64) -> Option<f64> {
+    if denominator == 0.0 {
+        Option::None // Return None if division by zero
+    } else {
+        Option::Some(numerator / denominator) // Return the result wrapped in Some
+    }
+}
+
+// Approach 2:
+// MyResult<T, E>  -- renamed as well
+enum Result<T, E> { // Define the Generic Result type
+    Ok(T), // Represents a successful value of type T
+    Err(E), // Represents an error of type E
+}
+
+fn divide_result(numerator: f64, denominator: f64) -> Result<f64, String> {
+    if denominator == 0.0 {
+        Result::Err(String::from("Division by zero error")) // Return an error message
+    } else {
+        Result::Ok(numerator / denominator) // Return the result wrapped in Ok
+    }
+}
+
+// Main function to demonstrate the usage of both approaches
+fn main() {
+    // Example usage of MyOption<T>
+    let result_option: Option<f64> = divide_option(3.0, 7.0);
+    match result_option{
+        Option::Some(value) => println!("Result: {}", value), // Handle the Some case
+        Option::None => println!("Error: Division by zero"), // Handle the None case
+    };
+
+    // Example usage of MyResult<T, E>
+    let result_result: Result<f64, String> = divide_result(3.0, 0.0);
+    match result_result {
+        Result::Ok(value) => println!("Result: {}", value), // Handle the Ok case
+        Result::Err(error) => println!("Error: {}", error), // Handle the Err case
+    };
+}
