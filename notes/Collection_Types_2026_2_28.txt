@@ -1,0 +1,115 @@
+// Collection Types
+// Last Chapter of Full Course 2024 for Rust Beginners
+// Feb 28, 2026
+
+// Collection Types:
+// 1. Vectors
+// 2. UTF8
+// 3. Hash Maps
+
+use std::collections::HashMap;
+
+fn main() {
+    // Vectors
+    // A vector is a resizable array. It can hold multiple values of the same type.
+    // Vec<T>
+    let vec: Vec<i32> = Vec::new();
+    let mut vec: Vec<i32> = vec![1, 2, 3, 4, 5];
+
+    vec.push(6);
+    vec.push(7);
+    vec.push(8);
+    vec.push(9);
+
+    println!("Vector: {:?}", vec);
+
+    let third: &i32 = &vec[2]; // Direct indexing
+    println!("Third element from &vec: {third}");
+
+    let fourth: Option<&i32> = vec.get(3);
+    match fourth {
+        Some(value) => println!("Fourth element from get() method: {value}"),
+        None => println!("No fourth element from get() method"),
+    }
+
+    // UTF8
+    let s: String = "Hello, Rust!".to_string();
+    let s: String = String::from("Hello, Rust!");
+    let mut s: String = String::from("Hello, Foo"); // Mutate the variable [push to it]
+    s.push_str(" Bar");
+    s.push('!');
+
+    println!("The value of s is: {s}");
+
+    let chinese: &str = "你好";
+    let russian: &str = "Здравствуйте";
+    let japanese: &str = "こんにちは";
+    let korean: &str = "안녕하세요";
+    let vietnamese: &str = "Xin chào";
+    let salut: &str = "Salut, ça va?";
+    let salam: &str = "السلام عليكم";
+    let emoji: &str = "😀";
+
+    println!("Chinese: {chinese}");
+    println!("Russian: {russian}");
+    println!("Japanese: {japanese}");
+    println!("Korean: {korean}");
+    println!("Vietnamese: {vietnamese}");
+    println!("French: {salut}");
+    println!("Arabic: {salam}");
+    println!("Emoji: {emoji}");
+
+    // If you want to combine strings, use the + operator or the format! macro
+    // Please note that the + operator takes ownership of the first string and borrows the second string, 
+    // so you cannot use the first string after using it with the + operator.
+
+    // Read more:
+    // https://doc.rust-lang.org/stable/book/ch08-02-strings.html#concatenating-with--or-format
+
+    // the + operator
+    let s1: String = String::from("Hello, ");
+    let s2: String = String::from("Rust ");
+    let s3: String = String::from("World!");
+    let s4: String = s1 + &s2 + &s3; // s1 is moved here and can no longer be used
+    println!("Combined string: {s4}");
+
+    // the format! macro --> Formatting strings
+    let full_message: String = format!(
+        "{chinese}\n
+        {russian}\n
+        {japanese}\n
+        {korean}\n
+        {vietnamese}\n
+        {salut}\n
+        {salam}\n
+        {emoji}"
+    );
+    println!("Full message: {full_message}");
+
+    // Hash Maps
+    // The Last Chapter of The Last Chapter of the course
+    let mut scores: HashMap<String, i32> = HashMap::new();
+
+    scores.insert(String::from("Alice"), 10);
+    scores.insert(String::from("Bob"), 20);
+
+    let student_name: String = String::from("Mike");
+    let student_score: i32 = 30;
+    scores.insert(student_name, student_score); // student_name is moved here and can no longer be used
+
+    let score_to_find = scores.get("Alice");
+    match score_to_find {
+        Some(score) => println!("Alice's score: {score}"),
+        None => println!("Alice's score not found"),
+    };
+
+    // copied() is used to get a copy of the value instead of a reference
+    // unwrap_or() is used to provide a default value if the key is not found
+    let score_to_get  = scores.get("Mike").copied().unwrap_or(0);
+    println!("Mike's score: {score_to_get}");
+
+    for (key, value) in &scores {
+        println!("{key}: {value}");
+    }
+
+}
